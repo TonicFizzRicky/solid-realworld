@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import solid from "vite-plugin-solid";
 import eslint from "vite-plugin-eslint";
+import {resolve} from 'path'
 
 export default defineConfig({
   plugins: [
@@ -15,5 +16,8 @@ export default defineConfig({
   },
   build: {
     target: "esnext",
+  },
+  resolve: {
+    alias: [{ find: "@", replacement: resolve(__dirname,"./src") }],
   },
 });
